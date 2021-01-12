@@ -168,7 +168,7 @@ document.querySelector('.buy').addEventListener('click', indigo.buyPlanes.bind(i
 const addTax = (rate, value) => value + value * rate;
 console.log(addTax(0.1, 200))
 
-*/
+
 
 //=========== CODE CHALLENGE ===========//
 
@@ -203,3 +203,30 @@ document.querySelector('.poll').addEventListener('click', poll.registerPollAnswe
 
 poll.displayResult.call({answers: [5, 2, 3]}, 'string');
 poll.displayResult.call({answers: [5, 2, 3, 4, 1]});
+
+
+// IIFE(immediately invoked function)
+
+(function() {
+  console.log('it will run once')
+})();
+
+*/
+
+
+//============== CLOSURES IN JS ================//
+
+const secureBooking = function() {
+  let passengerCount = 0;
+
+  return function() {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`)
+  }
+}
+
+const book = secureBooking();
+
+book();
+book();
+book();
